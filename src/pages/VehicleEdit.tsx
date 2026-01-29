@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import type { Vehicle, VehicleFormData } from "../types";
 import VehicleForm from "../components/Form";
+import { getVehicleById, updateVehicle } from "../api/vehiclesService";
 
 const VehicleEdit = () => {
   const { id } = useParams<{ id:string }>();
@@ -16,8 +16,8 @@ const VehicleEdit = () => {
     const fetchVehicle = async () => {
       try {
         setLoading(true);
-        const res = await axios.get<Vehicle>(`http://localhost:3001/vehicles/${id}`);
-        setVehicle(res.data);
+        const resData = await getVehicleById(id!);
+        setVehicle(resData);
       } catch (error) {
         console.error(error);
       } finally {
@@ -30,17 +30,8 @@ const VehicleEdit = () => {
   const handleSubmit = async (data:VehicleFormData) => {
     try {
       setIsSubmitting(true);
-      const res = await axios.patch(`http://localhost:3001/vehicles/${id}`, {
-        brand: data.brand,
-        model: data.model,
-        year: Number(data.year),
-        plate: data.plate,
-        lastService: data.lastService,
-        mileage: Number(data.mileage),
-        location: data.location,
-        gpsStatus: data.gpsStatus,
-      });
-      navigate(`/vehicles/${res.data.id}`);
+      const resData = await updateVehicle(id!, data);
+      navigate(`/vehicles/${resData.id}`);
     } catch (error) {
       console.error(error);
     } finally {

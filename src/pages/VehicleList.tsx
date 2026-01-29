@@ -1,10 +1,10 @@
-import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
 import type { Status, Vehicle } from "../types";
 import { filterVehicles } from "../utils/vehicleFilters";
 import Card from "../components/Card";
 import { Link } from "react-router-dom";
 import { vehicleStatusOptions } from "../data/data";
+import { getVehicles } from "../api/vehiclesService";
 
 const VehicleList = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -15,18 +15,18 @@ const VehicleList = () => {
   const limit = 10;
 
   useEffect(() => {
-    const getVehicles = async () => {
+    const fetchVehicles = async () => {
       setLoading(true);
       try {
-        const res = await axios.get<Vehicle[]>("http://localhost:3001/vehicles");
-        setAllVehicles(res.data);
+        const resData = await getVehicles();
+        setAllVehicles(resData);
       } catch (error) {
         console.error(error);
       } finally {
         setLoading(false);
       };
     };
-    getVehicles();
+    fetchVehicles();
   }, []);
 
   //! Dado que json-server es un mock y su soporte de full-text depende de versión, decidí resolver la búsqueda en frontend para garantizar comportamiento consistente
@@ -53,7 +53,10 @@ const VehicleList = () => {
   return (
     <div className="flex-1 flex flex-col gap-5 min-w-full">
       <section className="flex flex-wrap justify-between gap-4">
-        <h1>Listado de vehículos</h1>
+        <div className="flex flex-wrap items-center gap-x-2">
+          <h1>Listado de vehículos</h1>
+          <p className="font-semibold text-xs leading-8">({paginatedVehicles.length})</p>
+        </div>
         <Link to="/vehicles/new" className="btn btn-primary">Crear vehículo</Link>
       </section>
 

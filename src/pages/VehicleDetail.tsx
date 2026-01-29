@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import type { Status, Vehicle } from "../types";
-import axios from "axios";
 import { getGpsColor, getStatusColor } from "../utils/badgesColor";
 import type { IconType } from "react-icons";
 import { LuArrowLeft, LuCalendar, LuCarFront, LuGauge, LuMapPin, LuPencil, LuTrash2 } from "react-icons/lu";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import StatusSelect from "../components/StatusSelect";
+import { getVehicleById, updateVehicleStatus, deleteVehicle } from "../api/vehiclesService";
 
 const VehicleDetail = () => {
   const { id } = useParams<{ id:string }>();
@@ -21,8 +21,8 @@ const VehicleDetail = () => {
     const fetchVehicle = async () => {
       try {
         setLoading(true);
-        const res = await axios.get<Vehicle>(`http://localhost:3001/vehicles/${id}`);
-        setVehicle(res.data);
+        const resData = await getVehicleById(id!);
+        setVehicle(resData);
       } catch (error) {
         console.error(error);
       } finally {
@@ -70,9 +70,7 @@ const VehicleDetail = () => {
     setIsUpdating(true);
 
     try {
-      await axios.patch(`http://localhost:3001/vehicles/${vehicle.id}`, {
-        status: newStatus,
-      });
+      await updateVehicleStatus(vehicle.id, newStatus);
     } catch (error) {
       console.error(error);
       setVehicle({ ...vehicle, status: previousStatus });
@@ -81,10 +79,10 @@ const VehicleDetail = () => {
     };
   };
 
-  const deleteVehicle = async () => {
+  const handleDeleteVehicle = async () => {
     try {
       setIsDeleting(true);
-      await axios.delete(`http://localhost:3001/vehicles/${vehicle.id}`);
+      await deleteVehicle(vehicle.id);
       navigate("/", { replace: true });
     } catch (error) {
       console.error(error);
@@ -149,7 +147,7 @@ const VehicleDetail = () => {
             <p className="text-sm text-slate-600">¿Estás seguro de que deseas eliminar este vehículo? Esta acción no se puede deshacer.</p>
             <div className="flex justify-end gap-2 mt-4">
               <button className="btn btn-secondary" disabled={isDeleting} onClick={()=>setOpenDeleteAlert(false)}>Cancelar</button>
-              <button className="btn btn-danger" disabled={isDeleting} onClick={deleteVehicle}>Eliminar</button>
+              <button className="btn btn-danger" disabled={isDeleting} onClick={handleDeleteVehicle}>Eliminar</button>
             </div>
           </div>
         </div>
