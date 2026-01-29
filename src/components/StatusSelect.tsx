@@ -12,8 +12,8 @@ const StatusSelect = ({ currentStatus, onChange, loading, disabled }:{ currentSt
   };
 
   return (
-    <div className="relative" tabIndex={0} onBlur={() => setIsOpen(false)}>
-      <button aria-haspopup="listbox" aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className="btn btn-secondary" disabled={disabled}>
+    <div className="flex-1 sm:flex-none relative" tabIndex={0} onBlur={() => setIsOpen(false)}>
+      <button aria-haspopup="listbox" aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)} className="w-full btn btn-secondary" disabled={disabled}>
         {!loading ? 
           <LuChevronsUpDown className=""/>
         :

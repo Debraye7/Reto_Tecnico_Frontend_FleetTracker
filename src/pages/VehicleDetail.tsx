@@ -98,21 +98,16 @@ const VehicleDetail = () => {
 
   return (
     <div className="flex flex-col gap-5">
-      <section className="flex flex-wrap justify-between items-center gap-4">
-        <Link to={"/"} className="btn btn-secondary flex items-center justify-center rounded-full p-2">
-          <LuArrowLeft className=""/>
+      <section className="flex flex-wrap justify-end gap-2">
+        <Link to={`/vehicles/${id}/edit`} className="flex-1 sm:flex-none btn btn-primary">
+          <LuPencil className=""/>
+          Editar
         </Link>
-        <div className="flex flex-wrap gap-2">
-          <Link to={`/vehicles/${id}/edit`} className="btn btn-primary">
-            <LuPencil className=""/>
-            Editar
-          </Link>
-          <StatusSelect currentStatus={vehicle.status} onChange={(newStatus:Status) => updateStatus(newStatus)} disabled={isUpdating} loading={isUpdating}/>
-          <button className="btn btn-danger" onClick={()=>setOpenDeleteAlert(true)}>
-            <LuTrash2 className=""/>
-            Eliminar
-          </button>
-        </div>
+        <button className="flex-1 sm:flex-none btn btn-danger" onClick={()=>setOpenDeleteAlert(true)}>
+          <LuTrash2 className=""/>
+          Eliminar
+        </button>
+        <StatusSelect currentStatus={vehicle.status} onChange={(newStatus:Status) => updateStatus(newStatus)} disabled={isUpdating} loading={isUpdating}/>
       </section>
       <article className="flex-1 flex flex-col md:flex-row gap-5 min-w-full">
         <section className="relative card flex gap-4 md:w-1/2">
