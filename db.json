@@ -1,0 +1,160 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "plate": "ABC-123",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "year": 2022,
+      "status": "Disponible",
+      "lastService": "2024-10-12",
+      "mileage": 35000,
+      "gpsStatus": "Activo",
+      "location": "Ciudad de México"
+    },
+    {
+      "id": 2,
+      "plate": "XYZ-789",
+      "brand": "Ford",
+      "model": "Ranger",
+      "year": 2021,
+      "status": "Mantenimiento",
+      "lastService": "2024-09-01",
+      "mileage": 58000,
+      "gpsStatus": "Inactivo",
+      "location": "Guadalajara"
+    },
+    {
+      "id": 3,
+      "plate": "JKL-456",
+      "brand": "Nissan",
+      "model": "Versa",
+      "year": 2020,
+      "status": "En uso",
+      "lastService": "2024-08-15",
+      "mileage": 72000,
+      "gpsStatus": "Activo",
+      "location": "Monterrey"
+    },
+    {
+      "id": 4,
+      "plate": "MNO-321",
+      "brand": "Chevrolet",
+      "model": "Aveo",
+      "year": 2019,
+      "status": "Disponible",
+      "lastService": "2024-07-10",
+      "mileage": 91000,
+      "gpsStatus": "Activo",
+      "location": "Querétaro"
+    },
+    {
+      "id": 5,
+      "plate": "PQR-654",
+      "brand": "Volkswagen",
+      "model": "Jetta",
+      "year": 2023,
+      "status": "En uso",
+      "lastService": "2024-11-02",
+      "mileage": 18000,
+      "gpsStatus": "Activo",
+      "location": "Ciudad de México"
+    },
+    {
+      "id": 6,
+      "plate": "STU-987",
+      "brand": "Kia",
+      "model": "Rio",
+      "year": 2021,
+      "status": "Disponible",
+      "lastService": "2024-06-22",
+      "mileage": 46000,
+      "gpsStatus": "Activo",
+      "location": "Puebla"
+    },
+    {
+      "id": 7,
+      "plate": "VWX-159",
+      "brand": "Hyundai",
+      "model": "Tucson",
+      "year": 2022,
+      "status": "Mantenimiento",
+      "lastService": "2024-09-18",
+      "mileage": 39000,
+      "gpsStatus": "Inactivo",
+      "location": "Toluca"
+    },
+    {
+      "id": 8,
+      "plate": "YZA-753",
+      "brand": "Mazda",
+      "model": "CX-5",
+      "year": 2023,
+      "status": "Disponible",
+      "lastService": "2024-10-28",
+      "mileage": 22000,
+      "gpsStatus": "Activo",
+      "location": "Guadalajara"
+    },
+    {
+      "id": 9,
+      "plate": "BCD-852",
+      "brand": "Honda",
+      "model": "Civic",
+      "year": 2020,
+      "status": "En uso",
+      "lastService": "2024-08-05",
+      "mileage": 68000,
+      "gpsStatus": "Activo",
+      "location": "León"
+    },
+    {
+      "id": 10,
+      "plate": "EFG-951",
+      "brand": "Ford",
+      "model": "Transit",
+      "year": 2019,
+      "status": "Mantenimiento",
+      "lastService": "2024-07-30",
+      "mileage": 120000,
+      "gpsStatus": "Inactivo",
+      "location": "Ciudad de México"
+    },
+    {
+      "id": 11,
+      "plate": "HIJ-147",
+      "brand": "Toyota",
+      "model": "Hilux",
+      "year": 2021,
+      "status": "En uso",
+      "lastService": "2024-09-10",
+      "mileage": 54000,
+      "gpsStatus": "Activo",
+      "location": "Hermosillo"
+    },
+    {
+      "id": 12,
+      "plate": "KLM-369",
+      "brand": "Renault",
+      "model": "Kangoo",
+      "year": 2020,
+      "status": "Disponible",
+      "lastService": "2024-06-01",
+      "mileage": 83000,
+      "gpsStatus": "Activo",
+      "location": "Mérida"
+    },
+    {
+      "id": "b8f0",
+      "brand": "Volkswagen",
+      "model": "Jetta",
+      "year": 2026,
+      "plate": "PQR-530",
+      "lastService": "2026-01-28",
+      "mileage": 0,
+      "location": "Ciudad de México",
+      "gpsStatus": "Inactivo",
+      "status": "Disponible"
+    }
+  ]
+}
