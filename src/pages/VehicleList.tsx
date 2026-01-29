@@ -30,22 +30,22 @@ const VehicleList = () => {
   }, []);
 
   //! Dado que json-server es un mock y su soporte de full-text depende de versión, decidí resolver la búsqueda en frontend para garantizar comportamiento consistente
-  //? Filtrado de vehículos
+  //* Filtrado de vehículos
   const filteredVehicles = useMemo(
     () => filterVehicles(allVehicles, searchTerm, statusFilter),
     [allVehicles, searchTerm, statusFilter]
   );
 
-  //? Paginación de los resultados filtrados
+  //* Paginación de los resultados filtrados
   const paginatedVehicles = useMemo(() => {
     const start = (page - 1) * limit;
     return filteredVehicles.slice(start, start + limit);
   }, [filteredVehicles, page]);
 
-  //? Total de páginas
+  //* Total de páginas
   const totalPages = Math.max(1, Math.ceil(filteredVehicles.length / limit));
 
-  //? Reset página al cambiar filtros
+  //* Reset página al cambiar filtros
   useEffect(() => {
     setPage(1);
   }, [searchTerm, statusFilter]);
