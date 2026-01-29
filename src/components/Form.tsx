@@ -18,6 +18,7 @@ const VehicleForm = ({ initialValues, onSubmit, loading, back }:{ initialValues?
   const validateForm = (data: VehicleFormData) => {
     const errors: Partial<Record<keyof VehicleFormData, string>> = {};
     const normalizedData: VehicleFormData = {
+      // Normalización previa para evitar inconsistencias en validación
       ...data,
       plate: data.plate.trim().toUpperCase(),
       brand: data.brand.trim(),

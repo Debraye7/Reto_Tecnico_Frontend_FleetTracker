@@ -34,6 +34,7 @@ const VehicleDetail = () => {
   }, [id]);
 
   useEffect(() => {
+    // Se bloquea el scroll del body para evitar interacción con el contenido detrás del modal
     if (openDeleteAlert) {
       document.body.style.overflow = "hidden";
     } else {
