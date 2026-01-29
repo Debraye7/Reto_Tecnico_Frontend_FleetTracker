@@ -143,18 +143,6 @@
       "mileage": 83000,
       "gpsStatus": "Activo",
       "location": "Mérida"
-    },
-    {
-      "id": "b8f0",
-      "brand": "Volkswagen",
-      "model": "Jetta",
-      "year": 2026,
-      "plate": "PQR-530",
-      "lastService": "2026-01-28",
-      "mileage": 0,
-      "location": "Ciudad de México",
-      "gpsStatus": "Inactivo",
-      "status": "Disponible"
     }
   ]
 }
